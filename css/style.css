@@ -1,0 +1,5 @@
+/* main area all country css */
+.allCountry{
+    height: 550px;
+    overflow-y: scroll;
+}
