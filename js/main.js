@@ -29,7 +29,11 @@ const countryName = async Cname =>{
     const url = `https://restcountries.com/v3.1/name/${Cname}`;
     const res = await fetch(url);
     const data = await res.json();
-    // console.log(data[0].name);
+    const currencyObject = data[0].currencies;
+    console.log(currencyObject);
+    const key=Object.keys(currencyObject)[0];
+    console.log(key);
+    console.log(currencyObject[key].name);
      const singleCountry = document.getElementById('singleCountry');
      singleCountry.textContent = '';
      const div = document.createElement('div');
@@ -45,7 +49,7 @@ const countryName = async Cname =>{
             <div class="border border-lg p-3">
                 <p>${data[0].altSpellings}</p>
                 <p><span class="fw-bolder">Poputalion :</span> ${data[0].population}</p>
-                <p><span class="fw-bolder">Currencies :</span> ${data[0]?.currencies[0]?.name}</p>
+                <p><span class="fw-bolder">Currencies :</span> ${currencyObject[key].name}</p>
             </div>
         </div>
      `;
